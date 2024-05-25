@@ -1,0 +1,14 @@
+:root {
+  --primary-color: #38404b;
+  --secondary-color: #94adcf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
