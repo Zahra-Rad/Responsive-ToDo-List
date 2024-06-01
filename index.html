@@ -38,45 +38,23 @@
       <div>
         <div>
           <div>
-            <input type="text" />
+            <input type="text" onkey placeholder="Add a new task..." class="inp"/>
             <button>
-              <span class="material-symbols-outlined"> chevron_right </span>
+              <span class="material-symbols-outlined addToList"> chevron_right </span>
             </button>
           </div>
           <div>
-            <input type="text" />
+            <input type="text" placeholder="Add a new task..." class="inp"/>
             <button>
               <span class="material-symbols-outlined"> add </span>
-              <span class="material-symbols-outlined"> chevron_right </span>
+              <span class="material-symbols-outlined addToList"> chevron_right </span>
             </button>
           </div>
         </div>
         <div>
-          <ul>
-            <li>
-              <h3>
-                <span class="point"></span>
-                Go shopping
-              </h3>
-              <div>
-                <span class="material-symbols-outlined"> edit </span>
-                <span class="material-symbols-outlined"> delete </span>
-              </div>
-            </li>
-          </ul>
+          <ul id="uncompleted_list"></ul>
           <h2>Completed</h2>
-          <ul>
-            <li>
-              <h3>
-                <span class="point"></span>
-                Go shopping
-              </h3>
-              <div>
-                <span class="material-symbols-outlined"> edit </span>
-                <span class="material-symbols-outlined"> delete </span>
-              </div>
-            </li>
-          </ul>
+          <ul id="completed_list"></ul>
         </div>
       </div>
     </section>

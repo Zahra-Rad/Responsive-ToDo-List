@@ -15,6 +15,7 @@ body {
   color: var(--secondary-color);
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
   aside {
     display: flex;
     flex-direction: column;
@@ -75,6 +76,7 @@ body {
             width: 15%;
             position: absolute;
             right: 0;
+            cursor: pointer;
             > span {
               position: absolute;
               right: 0;
@@ -117,6 +119,9 @@ body {
                   color: var(--secondary-color);
                   &:focus {
                     outline: none;
+                  }
+                  &::placeholder {
+                    color: var(--secondary-color);
                   }
                 }
                 > button {
@@ -167,17 +172,20 @@ body {
                 justify-content: space-between;
                 padding: 5px 5%;
                 border-radius: 15px;
+                margin: 15px 0;
                 box-shadow: -2px -2px 7px #94adcf48, 2px 2px 7px #292f37;
+                /* text-decoration: line-through; */
                 > h3 {
                   display: flex;
                   align-items: center;
-                  > .point {
+                  > .checkbox {
                     border-radius: 50%;
                     width: 13px;
                     height: 13px;
                     display: block;
                     margin-right: 10px;
                     border: 3px solid var(--secondary-color);
+                    cursor: pointer;
                   }
                 }
                 > div {
@@ -210,6 +218,13 @@ body {
   }
 }
 
+.hidden {
+  display: none;
+}
+.deleted {
+  animation: delete 1s ease-in-out forwards;
+}
+
 @media screen and (min-width: 768px) {
   body {
     flex-direction: row;
@@ -220,6 +235,7 @@ body {
       min-height: 100vh;
       justify-content: space-evenly;
       font-size: 1.5rem;
+      position: fixed;
       > ul {
         flex-direction: column;
         > li {
@@ -227,11 +243,76 @@ body {
         }
       }
     }
-    /* >section{
-
-      >div{
-        &:first-of-type{}
+    > section {
+      margin-left: calc(25vw);
+      > div {
+        &:last-of-type {
+          flex-direction: column;
+          > div {
+            width: 100%;
+            &:first-of-type {
+              > div {
+                &:first-of-type {
+                  display: flex;
+                  margin: -35px auto 40px;
+                  box-shadow: -1px -1px 3px inset #94adcf48,
+                    1px 1px 3px inset #292f37;
+                  border-radius: 15px;
+                  height: 50px;
+                  position: relative;
+                  width: 100%;
+                  max-width: 500px;
+                  > * {
+                    border-radius: 20px;
+                    background-color: transparent;
+                    border: none;
+                    color: var(--secondary-color);
+                    height: 100%;
+                  }
+                  > input {
+                    width: 85%;
+                    padding: 0 20px;
+                    &:focus {
+                      outline: none;
+                    }
+                    &::placeholder {
+                      color: var(--secondary-color);
+                    }
+                  }
+                  > button {
+                    width: 15%;
+                    position: absolute;
+                    right: 0;
+                    cursor: pointer;
+                    > span {
+                      position: absolute;
+                      right: 0;
+                      top: 50%;
+                      transform: translate(-20px, -50%);
+                    }
+                  }
+                }
+                &:last-of-type {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
       }
-    } */
+    }
+  }
+}
+
+@keyframes delete {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    transform: translateX(150%);
   }
 }
