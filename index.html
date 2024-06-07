@@ -18,11 +18,11 @@
   </head>
   <body>
     <aside>
-      <div>Fri, May 26</div>
+      <div id="time">Fri, May 26</div>
       <ul>
-        <li><span>1</span>Total</li>
-        <li><span>1</span>Remaining</li>
-        <li><span>1</span>Done</li>
+        <li><span id="total">0</span>Total</li>
+        <li><span id="remaining">0</span>Remaining</li>
+        <li><span id="done">0</span>Done</li>
       </ul>
     </aside>
     <section>
@@ -44,10 +44,10 @@
             </button>
           </div>
           <div>
-            <input type="text" placeholder="Add a new task..." class="inp"/>
+            <input type="text" placeholder="Add a new task..." class="inp hidden"/>
             <button>
-              <span class="material-symbols-outlined"> add </span>
-              <span class="material-symbols-outlined addToList"> chevron_right </span>
+              <span class="material-symbols-outlined" id="add"> add </span>
+              <span class="material-symbols-outlined addToList hidden"> chevron_right </span>
             </button>
           </div>
         </div>

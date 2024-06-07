@@ -95,12 +95,11 @@ body {
                 display: none;
               }
               &:last-of-type {
-                position: absolute;
+                position: fixed;
                 bottom: 10px;
                 right: 10px;
                 border-radius: 30px;
                 width: 30px;
-                width: 300px;
                 height: 30px;
                 box-shadow: -2px -2px 7px #94adcf48, 2px 2px 7px #292f37;
                 display: flex;
@@ -108,13 +107,13 @@ body {
                 align-items: center;
                 padding: 25px;
                 transition: 0.2s ease-in-out;
+                background-color: var(--primary-color);
                 &:hover {
                   box-shadow: -2px -2px 2px #94adcf48, 2px 2px 2px #292f37;
                 }
                 > input {
-                  /* display: none; */
                   width: 85%;
-                  background-color: transparent;
+                  background-color: var(--primary-color);
                   border: none;
                   color: var(--secondary-color);
                   &:focus {
@@ -125,7 +124,7 @@ body {
                   }
                 }
                 > button {
-                  background-color: transparent;
+                  background-color: var(--primary-color);
                   border: none;
                   border-radius: 50%;
                   display: flex;
@@ -134,20 +133,17 @@ body {
                   transition: 0.2s ease-in-out;
                   > span {
                     color: var(--secondary-color);
-                    &:first-of-type {
-                      display: none;
-                    }
                     &:last-of-type {
-                      /* display: none; */
                       padding: 5px;
+                      border-radius: 50%;
+                      /* &:active {
+                        box-shadow: -2px -2px 7px inset #94adcf48,
+                          2px 2px 7px inset #292f37;
+                      } */
+                      &:hover {
+                        box-shadow: -2px -2px 7px #94adcf48, 2px 2px 7px #292f37;
+                      }
                     }
-                  }
-                  &:hover {
-                    box-shadow: -2px -2px 7px #94adcf48, 2px 2px 7px #292f37;
-                  }
-                  &:active {
-                    box-shadow: -2px -2px 7px inset #94adcf48,
-                      2px 2px 7px inset #292f37;
                   }
                 }
               }

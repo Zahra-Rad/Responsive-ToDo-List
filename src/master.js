@@ -2,6 +2,10 @@ const btnsAdd = document.querySelectorAll(".addToList");
 const inps = document.querySelectorAll(".inp");
 const uncomplete = document.querySelector("#uncompleted_list");
 const complete = document.querySelector("#completed_list");
+const remainingTasks = document.querySelector("#remaining");
+const total = document.querySelector("#total");
+const done = document.querySelector("#done");
+const addBtn = document.querySelector("#add");
 
 ///// checking to show Completed /////
 
@@ -22,13 +26,28 @@ const addToList = (task, index) => {
     <div>
     <span class="material-symbols-outlined" onclick='deleteTask(this)'> delete </span>
     </div>`;
-    // <span class="material-symbols-outlined" onclick='editTast(this)'> edit </span>
+  // <span class="material-symbols-outlined" onclick='editTast(this)'> edit </span>
   uncomplete.appendChild(uncomplete_li);
   inps[index].value = null;
   inps[index].focus();
 
+  ///// close input area in mobile devices /////
+  addBtn.classList.remove("hidden");
+  addBtn.nextElementSibling.classList.add("hidden");
+  addBtn.parentElement.previousElementSibling.classList.add("hidden");
+  addBtn.parentElement.parentElement.style.width = "30px";
+
+  // addBtn.nextElementSibling.addEventListener("click", () => {
+  //   addBtn.classList.remove("hidden");
+  //   addBtn.nextElementSibling.classList.add("hidden");
+  //   addBtn.parentElement.previousElementSibling.classList.add("hidden");
+  //   addBtn.parentElement.parentElement.style.width = "30px";
+  // });
+  ///// close input area in mobile devices /////
+
   checkLists();
   movingToComplete();
+  tasksCalc();
 };
 
 btnsAdd.forEach((element, index) => {
@@ -77,6 +96,7 @@ const movingToComplete = () => {
       }
       clicksCheckbox++;
       checkLists();
+      tasksCalc();
     });
   });
 };
@@ -104,5 +124,57 @@ const deleteTask = (s) => {
   setTimeout(() => {
     li.remove();
     checkLists();
+    tasksCalc();
   }, 800);
 };
+
+///// desplay tasks numbers /////
+
+const tasksCalc = () => {
+  remaining.innerHTML = uncomplete.children.length;
+  done.innerHTML = complete.children.length;
+  total.innerHTML = uncomplete.children.length + complete.children.length;
+};
+
+///// desplay date /////
+
+const time = document.querySelector("#time");
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let date = new Date();
+
+time.innerHTML = `${days[date.getDay()]}, ${
+  months[date.getMonth()]
+} ${date.getDate()}`;
+
+///// mobile size open input area /////
+
+let clicks = 1;
+
+addBtn.parentElement.addEventListener("click", () => {
+  if (clicks % 2) {
+    addBtn.classList.add("hidden");
+    addBtn.nextElementSibling.classList.remove("hidden");
+    addBtn.parentElement.previousElementSibling.classList.remove("hidden");
+    addBtn.parentElement.parentElement.style.width = "300px";
+  } else {
+    addBtn.classList.remove("hidden");
+    addBtn.nextElementSibling.classList.add("hidden");
+    addBtn.parentElement.previousElementSibling.classList.add("hidden");
+    addBtn.parentElement.parentElement.style.width = "30px";
+  }
+  clicks++
+});
